@@ -6,14 +6,18 @@ RUN php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php')
 RUN php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer && \
     rm -rf /tmp/composer-setup.php
 
-RUN apt-get update && \
-    apt-get install -y git unzip && \
-    apt-get install libmcrypt-dev
+RUN apt-get update && apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng-dev \
+        git \
+        unzip
 
 RUN apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng12-dev
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
 RUN docker-php-ext-install gd
-RUN docker-php-ext-install pdo pdo_mysql zip mcrypt
+RUN docker-php-ext-install pdo pdo_mysql zip iconv mcrypt
 RUN docker-php-ext-install mysqli 
 RUN docker-php-ext-enable mysqli
 
