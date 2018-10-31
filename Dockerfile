@@ -30,7 +30,7 @@ RUN cd /tmp \
     && tar -xvvzf ioncube.tar.gz \
     && mv ioncube/ioncube_loader_lin_7.2.so /usr/local/lib/php/extensions/* \
     && rm -Rf ioncube.tar.gz ioncube \
-    && echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20151012/ioncube_loader_lin_7.2.so" > /usr/local/etc/php/conf.d/00_docker-php-ext-ioncube_loader_lin_7.2.ini
+    && echo "zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20170718/ioncube_loader_lin_7.2.so" > /usr/local/etc/php/conf.d/00_docker-php-ext-ioncube_loader_lin_7.2.ini
 
 WORKDIR /var/www
 
