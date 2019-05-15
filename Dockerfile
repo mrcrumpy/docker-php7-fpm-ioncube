@@ -23,7 +23,7 @@ RUN rm -r /var/lib/apt/lists/*
 
 # Install php modules
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl
-RUN docker-php-ext-install gd pdo pdo_mysql zip iconv soap mysqli intl imap
+RUN docker-php-ext-install gd pdo pdo_mysql zip iconv soap mysqli intl imap xmlrpc
 
 # Enable php modules
 RUN docker-php-ext-enable mysqli intl imap
