@@ -17,11 +17,10 @@ RUN apt-get update && apt-get install -y \
         wget
 
 # Install php modules
-RUN pecl install mcrypt-1.0.1
 RUN docker-php-ext-install gd pdo pdo_mysql zip iconv soap mysqli intl imap
 
 # Enable php modules
-RUN docker-php-ext-enable mcrypt mysqli intl imap
+RUN docker-php-ext-enable mysqli intl imap
 
 # Configure php modules
 RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
