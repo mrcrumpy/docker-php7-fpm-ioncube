@@ -14,9 +14,15 @@ RUN apt-get update && apt-get install -y \
         libxml2-dev \
         git \
         unzip \
+        libzip-dev \
+        libc-client-dev \
+        libkrb5-dev \
         wget
 
+RUN rm -r /var/lib/apt/lists/*
+
 # Install php modules
+RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl
 RUN docker-php-ext-install gd pdo pdo_mysql zip iconv soap mysqli intl imap
 
 # Enable php modules
